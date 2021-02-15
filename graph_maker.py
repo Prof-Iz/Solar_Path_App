@@ -76,6 +76,7 @@ def make_graph(latitude, longitude):
         
         # LSTM = 15*D * (deltaGMT_a)
         
+        
         days_since = j-base_date
         B = ((360/365) + (days_since.days +285))
         # delta = D(23.45) * np.sin(D(B))
@@ -115,7 +116,6 @@ def make_graph(latitude, longitude):
         
             data = data.append(to_store,ignore_index=True)
         
-    
     lines = [data[data.day==i] for i in dates]
     sun_path = plt.subplot(1,1,1,projection='polar')
     sun_path.set_theta_zero_location('N')
@@ -130,12 +130,13 @@ def make_graph(latitude, longitude):
         theta = np.real(tempFrame['azimuth'])
         sun_path.plot(theta,r,linestyle='-.', marker='.',label='a',color='r')
     
+
     fig = plt.gca()
     x_axis = fig.axes.get_xaxis()
     x_axis.set_ticklabels([])
     
     y_axis = fig.axes.get_yaxis()
     y_axis.set_visible(False)
+
     plt.savefig(r'C:\Users\User\Documents\GitHub\Solar_Path_App\test_pics\graphed.png',transparent=True,dpi=200)
 
-make_graph(25.251,101.34)

@@ -32,11 +32,12 @@ def overlay_graph(route_base,graph):
     
     print(center, radius)
     
+    
     im2 = Image.open(graph)
     
     w, h = im2.size
     
-    mf = (radius / 370)
+    mf = (radius / 300) #300 if width is 800, 370 if 960
     
     im2_large = im2.resize((int(w * mf),int(h * mf)))
     
@@ -65,3 +66,8 @@ def overlay_graph(route_base,graph):
     # cv2.imwrite("Centre_skye.jpg",img)
     im1.save("C:\\Users\\User\\Documents\\GitHub\\Solar_Path_App\\test_pics\\combined.png")
     # cv2.waitKey(0)
+    im1.show()
+    temp_base.close()
+    temp_graph.close()
+    im1.close()
+    im2.close()
