@@ -136,6 +136,6 @@ def make_graph(latitude, longitude):
     
     y_axis = fig.axes.get_yaxis()
     y_axis.set_visible(False)
-    plt.savefig(r'C:\Users\User\Documents\GitHub\Solar_Path_App\test_pics\graphed.png',transparent=True,dpi=200)
+    plt.savefig(r'C:\Users\Iz\Desktop\Solar_Path_App\test_pics\graphed.png',transparent=True,dpi=200)
 
-make_graph(25.251,101.34)
+

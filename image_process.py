@@ -8,7 +8,7 @@ def overlay_graph(route_base,graph):
     graph = image generated of graph at coordinates
     '''
 
-    directory = "C:\\Users\\User\\Documents\\GitHub\\Solar_Path_App\\test_pics"
+    directory = r'C:\Users\Iz\Desktop\Solar_Path_App\test_pics'
     os.chdir(directory)
 
     img = cv2.imread(route_base,1)
@@ -20,8 +20,7 @@ def overlay_graph(route_base,graph):
     # convert the grayscale image to binary image
     ret,thresh = cv2.threshold(gray_image,50,255,cv2.CV_8UC1)
     # cv2.imshow("Thresh image",thresh)
-
-    contours, heirarchy = cv2.findContours(thresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
+    _,contours,heirarchy = cv2.findContours(thresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
     max_countour = contours[0]
     for i in range(1,len(contours)):
         if cv2.contourArea(contours[i]) > cv2.contourArea(max_countour):
@@ -36,7 +35,7 @@ def overlay_graph(route_base,graph):
     
     w, h = im2.size
     
-    mf = (radius / 370)
+    mf = (radius / 300)
     
     im2_large = im2.resize((int(w * mf),int(h * mf)))
     
@@ -63,5 +62,6 @@ def overlay_graph(route_base,graph):
     im1.paste(im2_large,center_int,mask=im2_large)
 
     # cv2.imwrite("Centre_skye.jpg",img)
-    im1.save("C:\\Users\\User\\Documents\\GitHub\\Solar_Path_App\\test_pics\\combined.png")
+    # im1.save("C:\\Users\\User\\Documents\\GitHub\\Solar_Path_App\\test_pics\\combined.png")
     # cv2.waitKey(0)
+    im1.show()
