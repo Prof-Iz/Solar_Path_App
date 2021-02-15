@@ -10,12 +10,12 @@ def D(x):
     
 API_URL = 'http://api.timezonedb.com/v2.1/get-time-zone'
 
-# latitude = 3.0685
-# longitude = 101.7704
+latitude = 3.0685
+longitude = 101.7704
 
 
-latitude = 30.211543
-longitude = 101.804091
+# latitude = 30.211543
+# longitude = 101.804091
 
 current = datetime.now()
 # timestamp = datetime.timestamp(current)
